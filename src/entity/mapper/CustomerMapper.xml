@@ -16,4 +16,5 @@
     <select id="findCustomerByname" parameterType="string" resultType="entity.Customer">
         SELECT * FROM customer WHERE #{customername} = customername
     </select>
+
 </mapper>
