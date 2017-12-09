@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="entity.Disc">
+    <select id="getAllDisc" resultType="entity.Disc">
+        SELECT * FROM disc
+    </select>
+
+    <select id="findDiscById" parameterType="int" resultType="entity.Disc" >
+        SELECT * FROM disc WHERE id=#{id}
+    </select>
+
+    <update id="buyDisc" parameterType="_int">
+        UPDATE disc SET num = #{num}
+    </update>
+
+    <select id="findDiscBySinger" parameterType="string" resultType="entity.Disc">
+        SELECT * FROM disc WHERE singer = #{singer}
+    </select>
+
+</mapper>

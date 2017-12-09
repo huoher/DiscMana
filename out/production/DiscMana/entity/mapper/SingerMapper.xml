@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="entity.Singer">
+    <select id="getSingerById" parameterType="int" resultType="entity.Singer">
+        SELECT * FROM Singer WHERE id = #{id}
+    </select>
+
+    <select id="getAllSinger" resultType="entity.Singer">
+        SELECT * FROM Singer
+    </select>
+</mapper>
