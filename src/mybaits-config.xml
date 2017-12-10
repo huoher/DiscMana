@@ -17,7 +17,7 @@
             </dataSource>
         </environment>
     </environments>
-    <mappers>
+    <mappers> 
         <mapper resource="entity/mapper/CustomerMapper.xml"/>
         <mapper resource="entity/mapper/DiscMapper.xml"/>
         <mapper resource="entity/mapper/OrderMapper.xml"/>
