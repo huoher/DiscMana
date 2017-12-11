@@ -13,11 +13,8 @@ public class BuyDiscDao {
         SqlFactory sqlFactory = new SqlFactory();
         SqlSession sqlSession = sqlFactory.getSession();
         int re = sqlSession.insert("addOrder",order);
-        int num;
         Disc disc = sqlSession.selectOne("findDiscById",discid);
-        num = disc.getNum();
-        num--;
-        sqlSession.update("buyDisc",(num));
+        sqlSession.update("buyDisc",disc);
         sqlFactory.commitAll();
         sqlFactory.closeAll();
         return re;
