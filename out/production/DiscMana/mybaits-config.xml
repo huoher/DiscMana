@@ -22,5 +22,6 @@
         <mapper resource="entity/mapper/DiscMapper.xml"/>
         <mapper resource="entity/mapper/OrderMapper.xml"/>
         <mapper resource="entity/mapper/SingerMapper.xml"/>
+        <mapper resource="entity/mapper/ManagerMapper.xml"/>
     </mappers>
 </configuration>

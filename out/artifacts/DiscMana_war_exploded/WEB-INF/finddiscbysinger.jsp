@@ -1,18 +1,17 @@
 <%--
   Created by IntelliJ IDEA.
   User: huoher
-  Date: 17-12-6
-  Time: 下午11:44
+  Date: 17-12-24
+  Time: 下午4:09
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
-    <title>listCarts</title>
+    <title>按歌手查看唱片</title>
 </head>
 <body>
-<h1>你的购物车</h1>
 <table>
     <tr>
         <th>专辑编号</th>
@@ -23,13 +22,13 @@
 
     </tr>
 
-    <c:forEach items="${ListCarts}" var="ListCart" >
+    <c:forEach items="${discbysinger}" var="disc" >
         <tr>
-            <td><c:out value="${ListCart.id}"/></td>
-            <td><c:out value="${ListCart.name}"/></td>
-            <td><c:out value="${ListCart.singer}"/></td>
-            <td><c:out value="${ListCart.company}"/></td>
-            <td><c:out value="${ListCart.issuedate}"></c:out></td>
+            <td><c:out value="${disc.id}"/></td>
+            <td><c:out value="${disc.name}"/></td>
+            <td><c:out value="${disc.singer}"/></td>
+            <td><c:out value="${disc.company}"/></td>
+            <td><c:out value="${disc.issuedate}"></c:out></td>
         </tr>
     </c:forEach>
 </table>

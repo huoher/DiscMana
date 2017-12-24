@@ -11,12 +11,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "ListSingerServlet",urlPatterns = "/ListSinger")
+@WebServlet(name = "ListSingerServlet",urlPatterns = "/ListSinger.action")
 public class ListSingerServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         SingerDao singerDao = new SingerDao();
         List<Singer> singerList = singerDao.getAllSinger();
-        request.getSession().setAttribute("Singers",singerList);
+        for (Singer singer:singerList) {
+            System.out.println(singer);
+        }
+        request.getSession().setAttribute("singers",singerList);
         request.getRequestDispatcher("WEB-INF/Singer.jsp").forward(request,response);
     }
 

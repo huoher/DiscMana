@@ -3,16 +3,12 @@ package entity;
 public class Singer {
     private int id;
     private String name;
-    private int discid;
 
     public Singer() {
-        super();
     }
 
-    public Singer(String name, int discid) {
-        super();
+    public Singer(String name) {
         this.name = name;
-        this.discid = discid;
     }
 
     public int getId() {
@@ -31,11 +27,10 @@ public class Singer {
         this.name = name;
     }
 
-    public int getDiscid() {
-        return discid;
-    }
-
-    public void setDiscid(int discid) {
-        this.discid = discid;
+    @Override
+    public String toString() {
+        return "Singer[id=" + id +
+                ", name=" + name +
+                "]";
     }
 }

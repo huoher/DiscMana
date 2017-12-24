@@ -14,5 +14,6 @@
 sussess;
 <a href="/listDisc.action">list</a>
 <a href="/ListCarts.action">listCarts</a>
+<a href="/ListSinger.action">listSinger</a>
 </body>
 </html>

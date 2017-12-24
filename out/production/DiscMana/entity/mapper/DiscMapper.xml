@@ -12,10 +12,10 @@
         SELECT * FROM disc WHERE id=#{id}
     </select>
 
+
     <update id="buyDisc" parameterType="entity.Disc">
         UPDATE disc SET num = (#{num}-1) WHERE id = #{id}
     </update>
-    <!-- here is pretty importance -->
 
     <select id="findDiscBySinger" parameterType="string" resultType="entity.Disc">
         SELECT * FROM disc WHERE singer = #{singer}

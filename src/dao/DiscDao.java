@@ -1,5 +1,7 @@
 package dao;
 
+import entity.Disc;
+import entity.Singer;
 import org.apache.ibatis.session.SqlSession;
 import sqlfactory.SqlFactory;
 
@@ -16,6 +18,28 @@ public class DiscDao {
 
         sqlFactory.commitAll();
         sqlFactory.closeAll();
+        return list;
+    }
+
+    public Disc getDiscById(int id) throws IOException {
+        SqlFactory sqlFactory = new SqlFactory();
+        SqlSession sqlSession = sqlFactory.getSession();
+        Disc disc = new Disc();
+        disc = sqlSession.selectOne("findDiscById",id);
+        sqlFactory.commitAll();
+        sqlFactory.closeAll();
+        return disc;
+    }
+
+    public List<Disc> findBySinger(int id) throws IOException {
+        SqlFactory sqlFactory = new SqlFactory();
+        List<Disc> list = new ArrayList<>();
+        Singer singer = new Singer();
+        SqlSession sqlSession = sqlFactory.getSession();
+        singer = sqlSession.selectOne("getSingerById",id);
+        Disc disc = new Disc();
+        disc.setSinger(singer.getName());
+        list = sqlSession.selectList("findDiscBySinger",disc);
         return list;
     }
 }

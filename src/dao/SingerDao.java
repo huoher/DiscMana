@@ -11,7 +11,7 @@ public class SingerDao {
     public List getAllSinger() throws IOException {
         SqlFactory sqlFactory = new SqlFactory();
         SqlSession sqlSession = sqlFactory.getSession();
-        List<Singer> list = sqlSession.selectList("etAllSinger");
+        List<Singer> list = sqlSession.selectList("getAllSinger");
         return list;
     }
 }
