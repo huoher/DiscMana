@@ -16,7 +16,7 @@ public class ListDiscServlet extends HttpServlet {
         DiscDao discDao = new DiscDao();
         List<entity.Disc> discList = discDao.getAllDisc();
         request.getSession().setAttribute("discms",discList);
-        request.getRequestDispatcher("WEB-INF/listDiscm.jsp").forward(request,response);
+        request.getRequestDispatcher("listDiscm.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

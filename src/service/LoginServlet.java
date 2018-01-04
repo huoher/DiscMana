@@ -19,7 +19,8 @@ public class LoginServlet extends HttpServlet {
         Customer customer = loginDao.LoginShell(username,passwd);
         if (customer != null){
             request.getSession().setAttribute("customerid",customer.getId());
-            request.getRequestDispatcher("WEB-INF/sussess.jsp").forward(request,response);
+            request.getSession().setAttribute("userName",customer.getCustomername());
+            request.getRequestDispatcher("index.html").forward(request,response);
         }else{
             request.getRequestDispatcher("WEB-INF/false.jsp").forward(request,response);
         }

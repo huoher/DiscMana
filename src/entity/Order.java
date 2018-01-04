@@ -4,6 +4,7 @@ public class Order {
     private int id;
     private int customerid;
     private int discid;
+    private String buydate;
 
     public Order() {
     }
@@ -36,5 +37,13 @@ public class Order {
 
     public void setDiscid(int discid) {
         this.discid = discid;
+    }
+
+    public String getBuydate() {
+        return buydate;
+    }
+
+    public void setBuydate(String buydate) {
+        this.buydate = buydate;
     }
 }

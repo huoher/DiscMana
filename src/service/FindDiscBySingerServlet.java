@@ -26,6 +26,6 @@ public class FindDiscBySingerServlet extends HttpServlet {
         for (Disc disc:discList) {
             System.out.println(disc);
         }
-        request.getRequestDispatcher("WEB-INF/finddiscbysinger.jsp").forward(request,response);
+        request.getRequestDispatcher("finddiscbysinger.jsp").forward(request,response);
     }
 }

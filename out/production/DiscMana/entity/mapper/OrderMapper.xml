@@ -5,7 +5,7 @@
 
 <mapper namespace="entity.Order">
     <insert id="addOrder" parameterType="entity.Order">
-        INSERT INTO orders(customerid,discid) VALUES(#{customerid},#{discid})
+        INSERT INTO orders(customerid,discid,buydate) VALUES(#{customerid},#{discid},#{buydate})
     </insert>
 
     <select id="findOrderBycid" parameterType="int" resultType="entity.Order">

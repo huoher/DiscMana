@@ -1,6 +1,7 @@
 package service;
 
 import entity.Disc;
+import entity.Discplus;
 import entity.Order;
 import org.apache.ibatis.session.SqlSession;
 import sqlfactory.SqlFactory;
@@ -17,10 +18,15 @@ import java.util.List;
 @WebServlet(name = "CartsServlet",urlPatterns = "/ListCarts.action")
 public class CartsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        this.doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String userName = (String) request.getSession().getAttribute("userName");
+        if (null == userName) {
+            response.sendRedirect("form-1/index.html");
+            return;
+        }
         int customerid = (int) request.getSession().getAttribute("customerid");
 //        int customerid = Integer.parseInt(strcustomerid);
         SqlFactory sqlFactory = new SqlFactory();
@@ -32,7 +38,23 @@ public class CartsServlet extends HttpServlet {
             Disc disc = sqlSession.selectOne("findDiscById",id);
             discList.add(disc);
         }
-        request.getSession().setAttribute("ListCarts",discList);
-        request.getRequestDispatcher("WEB-INF/listCarts.jsp").forward(request,response);
+
+        List<Discplus> discpluses = new ArrayList<>();
+        for (Disc disc :discList) {
+            Discplus discplus = new Discplus();
+            discplus.setId(disc.getId());
+            discplus.setCompany(disc.getCompany());
+            discplus.setIssuedate(disc.getIssuedate());
+            discplus.setName(disc.getName());
+            discplus.setSinger(disc.getSinger());
+            discpluses.add(discplus);
+        }
+
+       for (int i=0;i<listorder.size();i++){
+            discpluses.get(i).setDatetime(listorder.get(i).getBuydate());
+       }
+
+        request.getSession().setAttribute("ListCarts",discpluses);
+        request.getRequestDispatcher("/listCarts.jsp").forward(request,response);
     }
 }

@@ -42,4 +42,13 @@ public class DiscDao {
         list = sqlSession.selectList("findDiscBySinger",disc);
         return list;
     }
+
+    public int doUpdateDisc(Disc disc) throws IOException {
+        SqlFactory sqlFactory = new SqlFactory();
+        SqlSession sqlSession = sqlFactory.getSession();
+        int re = sqlSession.update("updateDisc",disc);
+        sqlFactory.commitAll();
+        sqlFactory.closeAll();
+        return re;
+    }
 }

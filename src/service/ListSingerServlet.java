@@ -20,7 +20,7 @@ public class ListSingerServlet extends HttpServlet {
             System.out.println(singer);
         }
         request.getSession().setAttribute("singers",singerList);
-        request.getRequestDispatcher("WEB-INF/Singer.jsp").forward(request,response);
+        request.getRequestDispatcher("/Singer.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

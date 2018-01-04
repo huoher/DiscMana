@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
         if (re == 0)
             request.getRequestDispatcher("WEB-INF/false.jsp").forward(request,response);
         else
-            request.getRequestDispatcher("WEB-INF/sussess.jsp").forward(request,response);
+            request.getRequestDispatcher("/login.jsp").forward(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

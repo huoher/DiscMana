@@ -21,4 +21,9 @@
         SELECT * FROM disc WHERE singer = #{singer}
     </select>
 
+    <update id="updateDisc" parameterType="entity.Disc">
+        UPDATE disc SET name = #{name} , singer = #{singer},num = #{num},issuedate=#{issuedate},company = #{company}
+        WHERE id = #{id}
+    </update>
+
 </mapper>

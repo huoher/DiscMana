@@ -17,7 +17,9 @@ public class ManaLoginServlet extends HttpServlet {
         LoginDao loginDao = new LoginDao();
         boolean result = loginDao.ManaLogin(username,passwd);
         if (result == true){
-            request.getRequestDispatcher("WEB-INF/ManaMain.jsp").forward(request,response);
+            System.out.println("true");
+            request.getSession().setAttribute("ManaName",username);
+            request.getRequestDispatcher("/ManaDisc.action").forward(request,response);
         }else {
             request.getRequestDispatcher("WEB-INF/false.jsp").forward(request,response);
         }

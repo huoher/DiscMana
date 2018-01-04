@@ -8,8 +8,9 @@ import sqlfactory.SqlFactory;
 import java.io.IOException;
 
 public class BuyDiscDao {
-    public int BuyDiscOp(int customerid,int discid) throws IOException {
+    public int BuyDiscOp(int customerid,int discid,String datetime) throws IOException {
         Order order = new Order(customerid,discid);
+        order.setBuydate(datetime);
         SqlFactory sqlFactory = new SqlFactory();
         SqlSession sqlSession = sqlFactory.getSession();
         int re = sqlSession.insert("addOrder",order);
